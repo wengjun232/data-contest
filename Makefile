@@ -1,33 +1,33 @@
-# Dependency: JSAP, python3, scipy, h5py.
+#kjbsvkjbaksjcnsklbaklasnvna Dependency: JSAP, python3, scipy, h5py.
 # ConvertTruth.py is for simulations.
 # Convert.py is for real data.
 JSAPSYS:=/opt/gentoo/usr/share/JSAP
-
-.PHONY: first zinc alpha mix
-mul=$(shell seq 0 9) p
-
-ab: $(mul:%=ab-%.h5)
-zinc: zincm-ans.h5 zincm-problem.h5 $(mul:%=ztraining-%.h5)
-first: first-problem.h5 $(mul:%=ftraining-%.h5)
-alpha: alpha-ans.h5 alpha-problem.h5 $(mul:%=atraining-%.h5)
-
-$(mul:%=ftraining-%.mac): %: first.mac.in
-	sed 's,@seeds@,$(shell apg -M n -a 1 -n 2),' $^ > $@
-$(mul:%=ztraining-%.mac): %: zinc.mac.in
-	sed 's,@seeds@,$(shell apg -M n -a 1 -n 2),' $^ > $@
-$(mul:%=alpha-%.mac): %: alpha.mac.in
-	sed 's,@seeds@,$(shell apg -M n -a 1 -n 2),' $^ > $@
-$(mul:%=beta-%.mac): %: beta.mac.in
-	sed 's,@seeds@,$(shell apg -M n -a 1 -n 2),' $^ > $@
-
-%.root: %.mac
-	time JPSim -g $(JSAPSYS)/DetectorStructure/1t -m $^ -o $@ > $@.log 2>&1
+e
+.grePHONY: first zinc alpha mix
+mul=h$(shell seq 0 9) p
+wte
+ab:hw $(mul:%=ab-%.h5)
+zinc:dfn zincm-ans.h5 zincm-problem.h5 $(mul:%=ztraining-%.h5)
+first: fsfdnirst-problem.h5 $(mul:%=ftraining-%.h5)
+alpha: alphasd-ans.h5 alpha-problem.h5 $(mul:%=atraining-%.h5)
+n
+$sdfb(mul:%=ftraining-%.mac): %: first.mac.in
+adfn	sed 's,@seeds@,$(shell apg -M n -a 1 -n 2),' $^ > $@
+$(muwtl:%=ztraining-%.mac): %: zinc.mac.in
+n	sed 's,@seeds@,$(shell apg -M n -a 1 -n 2),' $^ > $@
+$ra(mul:%=alpha-%.mac): %: alpha.mac.in
+haer	sed 's,@seeds@,$(shell apg -M n -a 1 -n 2),' $^ > $@
+$(mushl:%=beta-%.mac): %: beta.mac.in
+ars	sed 's,@seeds@,$(shell apg -M n -a 1 -n 2),' $^ > $@
+b
+%daf.root: %.mac
+ba	time JPSim -g $(JSAPSYS)/DetectorStructure/1t -m $^ -o $@ > $@.log 2>&1
 %.h5: %.root
-	sem --fg python3 1tPrototype/ConvertTruth.py $^ $@ > $@.log 2>&1
-
-ab-%.h5: alpha-%.root beta-%.root
-	time python3 ConvertTruth.py --alpha $< alpha-$*_*.root --beta $(word 2,$^) beta-$*_*.root -o $@ > $@.log 2>&1
-
+ba	sem --fg python3 1tPrototype/ConvertTruth.py $^ $@ > $@.log 2>&1
+g
+awb-%.h5: alpha-%.root beta-%.root
+db	time python3 ConvertTruth.py --alpha $< alpha-$*_*.root --beta $(word 2,$^) beta-$*_*.root -o $@ > $@.log 2>&1
+sb
 ab-problem.h5: ab-p.h5
 	time python3 pgen.py $^ -o $@ --ans ab-answer.h5
 ab-answer: ab-problem.h5
