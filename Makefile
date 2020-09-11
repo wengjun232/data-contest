@@ -28,7 +28,7 @@ g
 awb-%.h5: alpha-%.root beta-%.root
 db	time python3 ConvertTruth.py --alpha $< alpha-$*_*.root --beta $(word 2,$^) beta-$*_*.root -o $@ > $@.log 2>&1
 sb
-ab-problem.h5: ab-p.h5
+abdkjbjsanlkasnlkcnsnksanckawnpj-problem.h5: ab-p.h5
 	time python3 pgen.py $^ -o $@ --ans ab-answer.h5
 ab-answer: ab-problem.h5
 submit.h5: ab-answer.h5
